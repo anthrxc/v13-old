@@ -14,7 +14,7 @@ Next, you'll need to edit the [config](https://github.com/aanthr0/djs-template/b
 The first change is the name, which you need to change from `config-example` to `config`.
 After that, update the values of variables to the correct information.  
 
-*If you'd like to store the bot token and MongoDB connection URI inside of a `.env` file, create the file in [src/](https://github.com/aanthr0/djs-template/tree/main/src) and add the following at the top of the [index.js](https://github.com/aanthr0/djs-template/blob/main/src/index.js) file: `require('dotenv').config({ path: `${process.cwd()}/src/.env`});`. Make sure to install dotenv through `npm i -D dotenv`!*
+*If you'd like to store the bot token and MongoDB connection URI inside of a `.env` file, create the file in [src/](https://github.com/aanthr0/djs-template/tree/main/src) and add the following at the top of the [index.js](https://github.com/aanthr0/djs-template/blob/main/src/index.js) file: ```require('dotenv').config({ path: `${process.cwd()}/src/.env`});```. Make sure to install dotenv through `npm i -D dotenv`!*
 
 Once you've updated everything you need to, you're ready to run the bot!
 To check for any errors before you start working on your bot, run `npm start` in the console.
