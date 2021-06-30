@@ -1,0 +1,32 @@
+{
+  "name": "djs-template",
+  "version": "1.0.0",
+  "description": "An easy-to-use Discord bot template made using the discord.js library.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "nodemon .",
+    "start": "node ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aanthr0/djs-template.git"
+  },
+  "keywords": [
+    "discord",
+    "discord-js",
+    "discord-bot-template"
+  ],
+  "author": "aanthr0",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/aanthr0/djs-template/issues"
+  },
+  "homepage": "https://github.com/aanthr0/djs-template#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "mongoose": "^5.13.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  }
+}
