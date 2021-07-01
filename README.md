@@ -8,7 +8,7 @@ This template brings you an awesome command handler with options defining how yo
 Setting up this template is extremely simple, so that you can focus on what matters when making a bot.
 
 
-The template comes with MongoDB support, so if you wish to use a different database, or use no database at all, remove mongoose from the dependencies array in the [package.json](https://github.com/aanthr0/djs-template/blob/main/package.json) file, line 3 in the [index.js](https://github.com/aanthr0/djs-template/blob/main/src/index.js#L3) file, lines 11-15 in [the same file](https://github.com/aanthr0/djs-template/blob/main/index.js#L11-L15), and lines 3-5 in [config-example.js](https://github.com/aanthr0/djs-template/blob/main/src/config-example.js#L3-L5).
+The template comes with MongoDB support, so if you wish to use a different database, or use no database at all, remove mongoose from the dependencies array in the [package.json](https://github.com/aanthr0/djs-template/blob/main/package.json) file, line 2 in the [index.js](https://github.com/aanthr0/djs-template/blob/main/src/index.js#L2) file, lines 11-15 in [the same file](https://github.com/aanthr0/djs-template/blob/main/index.js#L11-L15), and lines 3-5 in [config-example.js](https://github.com/aanthr0/djs-template/blob/main/src/config-example.js#L3-L5).
 
 Next, you'll need to edit the [config](https://github.com/aanthr0/djs-template/blob/main/src/config-example.js) file.
 The first change is the name, which you need to change from `config-example` to `config`.
