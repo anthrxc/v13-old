@@ -39,8 +39,7 @@ module.exports = (client) => {
                             });
                         };
                         if(cmd.help.ownerOnly && cmd.help.requiredPerms) throw new TypeError(`Command at ${dir} has a setting conflict: ownerOnly and requiredPerms cannot be used together.`);
-                        if(cmd.help.requiredPerms && cmd.help.requiredRoles) throw new TypeError(`Command at ${dir} has a setting conflict: requiredRoles and requiredPerms cannot be used together.`);
-                        if(cmd.help.requiredPerms && cmd.help.requiredRoles && cmd.help.dm) throw new TypeError(`Command at ${dir} has a setting conflict: requiredRoles and requiredPerms cannot be used together.`)
+                        if(cmd.help.requiredPerms && cmd.help.dm) throw new TypeError(`Command at ${dir} has a setting conflict: dm and requiredPerms cannot be used together.`)
                         if(!cmd.help.dm) cmd.help.dm = false;
                         if(cmd.help.requiredRoles) {
                             if(typeof cmd.help.requiredRoles === "string") cmd.help.requiredRoles = [cmd.help.requiredRoles];
