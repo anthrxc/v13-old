@@ -6,7 +6,7 @@ client.config = require("./config.js");
 ["commands", "aliases"].forEach(x => client[x] = new Collection());
 
 require("./handlers/command.js")(client);
-require("./hanlders/event.js")(client);
+require("./handlers/event.js")(client);
 
 mongoose.connect(client.config.uri, {
     useNewUrlParser: true,
