@@ -8,7 +8,7 @@ client.config = require("./config.js");
 require("./handlers/command.js")(client);
 require("./hanlders/event.js")(client);
 
-mongoose.connect(client.config.database.uri, {
+mongoose.connect(client.config.uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
