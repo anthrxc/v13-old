@@ -32,7 +32,7 @@ module.exports = async(client, message) => {
     else if(client.aliases.has(cmd)) command = client.commands.get(client.aliases.get(cmd));
 
     if(!command) return;
-    const { name, ownerOnly, requiredPerms, requiredRoles, minArgs, maxArgs, usage, dm } = command.help;
+    const { name, ownerOnly, requiredPerms, minArgs, maxArgs, usage, dm } = command.help;
 
     if(ownerOnly == true && !owners.includes(author.id)) {
         channel.send(
