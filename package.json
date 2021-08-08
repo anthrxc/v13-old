@@ -4,8 +4,8 @@
   "description": "An easy-to-use Discord bot template made using the discord.js library.",
   "main": "src/index.js",
   "scripts": {
-    "test": "nodemon .",
-    "start": "node ."
+    "test": "npm i && nodemon .",
+    "start": "npm i && node ."
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/aanthr0/djs-template#readme",
   "dependencies": {
-    "discord.js": "^12.5.3",
+    "discord.js": "^13.0.1",
     "mongoose": "^5.13.0"
   },
   "devDependencies": {

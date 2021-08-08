@@ -1,8 +1,11 @@
-module.exports = {
+module.exports.info = {
     owners: ["OWNER", "IDs", "HERE"],
-    uri: "MONGODB+SRV://URI:HERE",
-    token: "BOT-TOKEN-HERE",
-    prefix: "PREFIX-HERE",
+    token: "BOT-TOKEN",
+    uri: "MONGODB-CONNECTION-URI",
+    prefix: "PREFIX"
+};
+
+module.exports.embed = {
     color: {
         positive: "GREEN",
         negative: "RED"
@@ -12,4 +15,4 @@ module.exports = {
         negative: ":red_circle:"
     },
     footer: "EMBED-FOOTER"
-}
+};

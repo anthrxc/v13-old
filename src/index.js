@@ -1,17 +1,36 @@
-const { Client, Collection } = require("discord.js");
-const mongoose = require("mongoose");
+const { Client, Collection, Intents } = require("discord.js");
+const { connect, connection } = require("mongoose");
 
-const client = new Client({ disableMentions: "everyone" });
-client.config = require("./config.js");
+const client = new Client({
+    allowedMentions: { parse: ["users"] },
+    intents: new Intents(32767)
+});
+
+client.config = require("./config");
+
 ["commands", "aliases"].forEach(x => client[x] = new Collection());
+require("./core/cmd")(client);
+require("./core/evt")(client);
 
-require("./handlers/command.js")(client);
-require("./handlers/event.js")(client);
-
-mongoose.connect(client.config.uri, {
+connect(client.config.info.uri, {
+    useFindAndModify: false,
     useNewUrlParser: true,
     useUnifiedTopology: true
-});
-console.log("Sucessfully enabled MongoDB!");
+}).then(
+    () => {
+        console.log("Database connected.");
+    }
+).catch(
+    err => {
+        throw err;
+    }
+);
 
-client.login(client.config.token);
+process.on("beforeExit", 
+    () => {
+        connection.close();
+        console.log("Shutdown imminient; database disconnected.");
+    }
+);
+
+client.login(client.config.info.token);
