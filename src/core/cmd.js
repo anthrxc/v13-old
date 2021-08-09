@@ -52,7 +52,7 @@ module.exports = (client) => {
                             };
 
                             if (cmd.help.aliases) {
-                                if (typeof cmd.help.aliases !== "string" || typeof cmd.help.aliases !== "object") {
+                                if (typeof cmd.help.aliases !== "string" && typeof cmd.help.aliases !== "object") {
                                     console.error(`Command at "${dir}" exports an invalid aliases value; it can only be a string or an object.`);
                                     process.exit();
                                 };
