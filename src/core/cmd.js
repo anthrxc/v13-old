@@ -4,7 +4,7 @@ const { sep } = require("path");
 process.exitCode = 1;
 
 module.exports = (client) => {
-    var dir = `${process.cwd()}${sep}src${sep}commands`;
+    var dir = `${process.cwd()}${sep}src${sep}commands${sep}${sub}`;
 
     try {
         readdir(dir, (err, subs) => {
