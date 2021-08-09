@@ -4,7 +4,7 @@ const { sep } = require("path");
 process.exitCode = 1;
 
 module.exports = (client) => {
-    var dir = `${process.cwd()}${sep}src${sep}commands${sep}${sub}`;
+    var dir = `${process.cwd()}${sep}src${sep}commands`;
 
     try {
         readdir(dir, (err, subs) => {
@@ -12,7 +12,7 @@ module.exports = (client) => {
 
             subs.forEach(
                 sub => {
-                    dir = `${process.cwd()}${sep}src${sep}commands`;
+                    dir = `${process.cwd()}${sep}src${sep}commands${sep}${sub}`;
                     const commands = readdirSync(dir).filter(f => f.endsWith(".js"));
 
                     commands.forEach(
@@ -71,15 +71,19 @@ module.exports = (client) => {
                                     }
                                 );
                             };
-                            if (typeof cmd.help.ownerOnly !== "boolean") {
+                            if (cmd.help.ownerOnly && typeof cmd.help.ownerOnly !== "boolean") {
                                 console.error(`Command at "${dir}" exports an invalid ownerOnly value; it can only be a boolean.`);
                                 process.exit();
                             };
 
-                            if (typeof cmd.help.usage !== "string") {
+                            if (cmd.help.usage && typeof cmd.help.usage !== "string") {
                                 console.error(`Command at "${dir}" exports an invalid usage value; it can only be a string.`);
                                 process.exit();
                             };
+                            
+                            if (!cmd.help.minArgs) cmd.help.minArgs = 0;
+                            if (!cmd.help.maxArgs || cmd.help.maxArgs < -1) cmd.help.maxArgs = -1;
+                            
                             if (typeof cmd.help.minArgs !== "number") {
                                 console.error(`Command at "${dir}" exports an invalid minArgs value; it can only be a number.`);
                                 process.exit();
@@ -89,17 +93,15 @@ module.exports = (client) => {
                                 process.exit();
                             };
 
-                            if (!cmd.help.minArgs) cmd.help.minArgs = 0;
-                            if (!cmd.help.maxArgs || cmd.help.maxArgs < -1) cmd.help.maxArgs = -1;
-
                             if (cmd.help.minArgs > cmd.help.maxArgs && cmd.help.maxArgs !== -1) {
                                 console.error(`Command at "${dir}" minimally requires more arguments than maximally allowed.`);
                                 process.exit();
                             };
+
                             client.commands.set(cmd.help.name, cmd);
+                            console.log(`Loaded "${cmd.help.name}" command.`);
                         }
                     );
-                    console.log(`Loaded "${sub}" commands.`);
                 }
             );
         });
