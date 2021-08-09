@@ -96,6 +96,7 @@ module.exports = (client) => {
                                 console.error(`Command at "${dir}" minimally requires more arguments than maximally allowed.`);
                                 process.exit();
                             };
+                            client.commands.set(cmd.help.name, cmd);
                         }
                     );
                     console.log(`Loaded "${sub}" commands.`);
